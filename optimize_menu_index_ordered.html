@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>菜單</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="components/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
+    <!-- sidebar styles -->
+    <link href="components/sidebar-gh-pages/css/simple-sidebar-left.css" rel="stylesheet" />
+    <link href="components/sidebar-gh-pages/css/simple-sidebar-right.css" rel="stylesheet" />
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="components/fontawesome-free-5.7.1-web/css/all.css" />
+    <!-- google noto TC font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <!-- nav bar -->
+    <div class="d-flex">
+      <nav class="navbar justify-content-center fixed-top p-0 h_50px main_color shadow-sm">
+        <div class="store_opening_style store_opening_label">營業中</div>
+        <!-- <div class="store_close_style store_close_label">暫停接單</div> -->
+        <div class="navbar-text mx-auto text-center ft_white ft_size_mid">店家名稱</div>
+
+        <button class="store_info_label btn_no_bg" onclick="location.href='./store_info.html';">
+          <i class="fas fa-info-circle fa-lg fa-inverse pr-1"></i>資訊
+        </button>
+      </nav>
+    </div>
+    <!-- /#nav bar -->
+    <!-- banner full picture -->
+    <div class="container-fluid white full_banner_style m_top_50px" id="bannerPic">
+      <div class="row justify-content-center">
+        <img class="full_banner_style" src="image/375x180.png" />
+      </div>
+    </div>
+    <!-- /#banner full picture -->
+    <!-- menu tab -->
+    <nav class="tabbable main_color fixed-top" id="menuTab">
+      <div
+        class="nav nav-tabs nav nav-pills nav-justified h_50px tabstyle"
+        id="nav-tab"
+        role="tablist"
+      >
+        <a
+          class="nav-item nav-link active"
+          id="popular_items"
+          data-toggle="tab"
+          href="#popular_items_pg"
+          >人氣精選 Popular Items</a
+        >
+        <a class="nav-item nav-link" id="main_course" data-toggle="tab" href="#main_course_pg"
+          >主餐 Main Course</a
+        >
+        <a class="nav-item nav-link" id="noodle" data-toggle="tab" href="#noodle_pg" role="tab"
+          >麵類 Noodle</a
+        >
+      </div>
+    </nav>
+    <!-- /#menu tab -->
+    <!-- fixed效果需預留的空白高度 -->
+    <div class="d-flex">
+      <div class="row" id="menu_tab_empty_area"></div>
+    </div>
+    <!-- /#fixed效果需預留的空白高度 -->
+    <!-- menu content -->
+    <div class="tab-content fadein" id="nav-tabContent">
+      <!-- 公告按鈕 -->
+      <button
+        class="notice_btn_style ft_white ft_size_xs"
+        type="button"
+        data-toggle="modal"
+        data-target="#noticeModal"
+      >
+        <i class="fas fa-volume-up pr-1"></i>公告
+      </button>
+      <!-- /#公告按鈕 -->
+      <!-- 多時段菜單 -->
+      <div class="accordion" id="accordionExample">
+        <div class="card no_radius">
+          <div class="card-header p-0" id="headingOne">
+            <div class="row flex-row" style="background-color: #a5a5a5; font-size: 14px">
+              <button
+                class="btn ft_white w-100"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+              >
+                <div class="d-flex row justify-content-between no-gutters ft_size_xs">
+                  <!-- <div class="col p-0 ml-2 text-left">多時段菜單選擇</div> -->
+                  <div class="col p-0 pl-3 text-left">
+                    10:00-15:00 白天菜單
+                    <i class="submenu-icon-close fas fa-angle-right mx-2" aria-hidden="true"></i>
+                    <i class="submenu-icon-open fas fa-angle-down mx-2" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div
+            id="collapseOne"
+            class="collapse"
+            aria-labelledby="headingOne"
+            data-parent="#accordionExample"
+          >
+            <div class="card-body p-0">
+              <div class="row flex-row" style="background-color: #d6d6d6; font-size: 14px">
+                <button
+                  class="btn mx-3 ft_grey2 ft_size_xs"
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#hintModal"
+                >
+                  16:00-18:00 下午菜單
+                </button>
+              </div>
+              <div class="row flex-row" style="background-color: #d6d6d6; font-size: 14px">
+                <button class="btn mx-3 ft_grey2 ft_size_xs" type="button">
+                  21:00-24:00 深夜菜單
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /#多時段菜單 -->
+      <!-- store open -->
+      <!-- <div class="container-fluid h_40px menu_title_style store_opening_style">
+        <div class="row">
+          <div class="col">店家營業中</div>
+        </div>
+      </div> -->
+      <!-- /#store open -->
+      <div class="tab-pane fade show active" id="popular_items_pg">
+        <!-- menu title -->
+        <div class="container-fluid grey4 h_40px menu_title_style">
+          <div class="row">
+            <div class="col">人氣精選 Popular Items</div>
+          </div>
+        </div>
+        <!-- /#menu title -->
+        <!-- menu food template no pic-->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <div class="col mxw-75px">
+              <div class="menu_pic_style">
+                <i class="fas fa-utensils fa-2x menu_icon_style ft_grey3"></i>
+              </div>
+            </div>
+            <a class="col" href="order_modify.html">
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_ch">翠玉子牛丼</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_eg">Beef Donburi With Egg and Scallion</div>
+              </div>
+            </a>
+            <div class="col mxw-75px">
+              <div class="col px-0 menu_line_style">
+                <div class="row no-gutters">
+                  <div class="col menu_price_style">100000000000$</div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col menu_food_qty ft_size_lg">100</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#menu food template no pic-->
+        <!-- menu food template disable-->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <div class="col mxw-75px">
+              <div class="menu_pic_style disable-color-grey">
+                <i class="fas fa-utensils fa-2x menu_icon_style fa-inverse"></i>
+              </div>
+            </div>
+            <a class="col">
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_ch ft_disable_grey">翠玉子牛丼</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_eg ft_disable_grey">
+                  Beef Donburi With Egg and Scallion
+                </div>
+              </div>
+            </a>
+            <div class="col mxw-75px">
+              <div class="col px-0 menu_line_style">
+                <div class="row no-gutters">
+                  <div class="col menu_price_style ft_disable_grey">100000$</div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col menu_food_tag">售完</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#menu food template disable-->
+        <!-- menu title -->
+        <div class="container-fluid grey4 h_40px menu_title_style">
+          <div class="row">
+            <div class="col">超級好吃 Sugoku Oishii</div>
+          </div>
+        </div>
+        <!-- /#menu title -->
+        <!-- menu food template no pic-->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <div class="col mxw-75px">
+              <div class="menu_pic_style">
+                <i class="fas fa-utensils fa-2x menu_icon_style ft_grey3"></i>
+              </div>
+            </div>
+            <a class="col" href="order_modify.html">
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_ch">翠玉子牛丼</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_eg">Beef Donburi With Egg and Scallion</div>
+              </div>
+            </a>
+            <div class="col mxw-75px">
+              <div class="col px-0 menu_line_style">
+                <div class="row no-gutters">
+                  <div class="col menu_price_style">100000000000$</div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col menu_food_qty ft_size_lg">100</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#menu food template no pic-->
+        <!-- menu food template disable-->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <div class="col mxw-75px">
+              <div class="menu_pic_style disable-color-grey">
+                <i class="fas fa-utensils fa-2x menu_icon_style fa-inverse"></i>
+              </div>
+            </div>
+            <a class="col">
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_ch ft_disable_grey">翠玉子牛丼</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_eg ft_disable_grey">
+                  Beef Donburi With Egg and Scallion
+                </div>
+              </div>
+            </a>
+            <div class="col mxw-75px">
+              <div class="col px-0 menu_line_style">
+                <div class="row no-gutters">
+                  <div class="col menu_price_style ft_disable_grey">100000$</div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col menu_food_tag">售完</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#menu food template disable-->
+        <!-- menu food template with pic1 -->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <div class="col mxw-75px">
+              <div class="menu_pic_style">
+                <img class="img-fluid" src="image/150x120.png" alt="" />
+              </div>
+            </div>
+            <a class="col">
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_ch">玉子牛丼</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_eg">Beef Donburi With Egg</div>
+              </div>
+            </a>
+            <div class="col mxw-75px">
+              <div class="col px-0 menu_line_style">
+                <div class="row no-gutters">
+                  <div class="col menu_price_style">100000$</div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col menu_food_qty ft_size_lg"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#menu food template pic1-->
+        <!-- menu empty block -->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <a class="col">
+              <div class="row no-gutters">
+                <div class="col h_75px"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- /#menu empty block -->
+      </div>
+      <div class="tab-pane fade" id="main_course_pg">
+        <!-- menu title -->
+        <div class="container-fluid grey4 h_40px menu_title_style">
+          <div class="row">
+            <div class="col">人氣精選 Popular Items</div>
+          </div>
+        </div>
+        <!-- /#menu title -->
+        <!-- menu food template no pic-->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <div class="col mxw-75px">
+              <div class="menu_pic_style">
+                <i class="fas fa-utensils fa-2x menu_icon_style ft_grey3"></i>
+              </div>
+            </div>
+            <a class="col" href="order_modify.html">
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_ch">翠玉子牛丼</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_eg">Beef Donburi With Egg and Scallion</div>
+              </div>
+            </a>
+            <div class="col mxw-75px">
+              <div class="col px-0 menu_line_style">
+                <div class="row no-gutters">
+                  <div class="col menu_price_style">100000000000$</div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col menu_food_qty ft_size_lg">100</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#menu food template no pic-->
+        <!-- menu food template disable-->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <div class="col mxw-75px">
+              <div class="menu_pic_style disable-color-grey">
+                <i class="fas fa-utensils fa-2x menu_icon_style fa-inverse"></i>
+              </div>
+            </div>
+            <a class="col">
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_ch ft_disable_grey">翠玉子牛丼</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_eg ft_disable_grey">
+                  Beef Donburi With Egg and Scallion
+                </div>
+              </div>
+            </a>
+            <div class="col mxw-75px">
+              <div class="col px-0 menu_line_style">
+                <div class="row no-gutters">
+                  <div class="col menu_price_style ft_disable_grey">100000$</div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col menu_food_tag">售完</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#menu food template disable-->
+        <!-- menu food template with pic1 -->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <div class="col mxw-75px">
+              <div class="menu_pic_style">
+                <img class="img-fluid" src="image/150x120.png" alt="" />
+              </div>
+            </div>
+            <a class="col">
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_ch">玉子牛丼</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_eg">Beef Donburi With Egg</div>
+              </div>
+            </a>
+            <div class="col mxw-75px">
+              <div class="col px-0 menu_line_style">
+                <div class="row no-gutters">
+                  <div class="col menu_price_style">100000$</div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col menu_food_tag">限時特價</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#menu food template pic1-->
+        <!-- menu food template with pic1 -->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <div class="col mxw-75px">
+              <div class="menu_pic_style">
+                <img class="img-fluid" src="image/150x120.png" alt="" />
+              </div>
+            </div>
+            <a class="col">
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_ch">玉子牛丼</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_eg">Beef Donburi With Egg</div>
+              </div>
+            </a>
+            <div class="col mxw-75px">
+              <div class="col px-0 menu_line_style">
+                <div class="row no-gutters">
+                  <div class="col menu_price_style">100000$</div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col menu_food_tag">限時特價</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#menu food template pic1-->
+        <!-- menu food template with pic1 -->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <div class="col mxw-75px">
+              <div class="menu_pic_style">
+                <img class="img-fluid" src="image/150x120.png" alt="" />
+              </div>
+            </div>
+            <a class="col">
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_ch">玉子牛丼</div>
+              </div>
+              <div class="row no-gutters">
+                <div class="col h-50 menu_text_style_eg">Beef Donburi With Egg</div>
+              </div>
+            </a>
+            <div class="col mxw-75px">
+              <div class="col px-0 menu_line_style">
+                <div class="row no-gutters">
+                  <div class="col menu_price_style">100000$</div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col menu_food_tag">限時特價</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#menu food template pic1-->
+        <!-- menu empty block -->
+        <div class="container-fluid p-0 menu_food_style">
+          <div class="row no-gutters align-items-center">
+            <a class="col">
+              <div class="row no-gutters">
+                <div class="col h_75px"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- /#menu empty block -->
+      </div>
+      <div class="tab-pane fade" id="noodle_pg">Contact</div>
+    </div>
+    <!-- /#menu content -->
+
+    <!-- add kart btn -->
+    <div class="d-flex">
+      <div class="row kart_btn_fixed_area"></div>
+    </div>
+    <div class="d-flex flex-column justify-content-end kart_panel_btn_box">
+      <div class="d-flex pe_all" id="kartBlock">
+        <button
+          class="container-fluid p-0 Kart_btn_style ft_white"
+          onclick="window.location.href='order_kart.html'"
+        >
+          <div class="row no-gutters align-items-center">
+            <div class="col mxw-75px">
+              <div class="kart_btn_qty_style">100</div>
+            </div>
+            <div class="col text-center">查看購物車</div>
+            <div class="col mxw-75px kart_btn_price_style ft_size_mid">1000000000$</div>
+          </div>
+        </button>
+      </div>
+      <div class="d-flex pe_all" id="ControlBlock">
+        <div class="d-flex justify-content-between container-fluid p-0 panel_btn_area_style">
+          <button class="p-0 panel_btn_style ft_white">
+            <div class="row no-gutters align-items-center">
+              <div class="col mxw-75px">
+                <i class="fas fa-utensils mt-3"></i>
+                <div class="panel_btn_in_style ft_size_sm">菜單</div>
+              </div>
+            </div>
+          </button>
+          <button class="p-0 panel_btn_style ft_white">
+            <div class="row no-gutters align-items-center">
+              <div class="col mxw-75px">
+                <i class="fas fa-clipboard-list mt-3"></i>
+                <div class="panel_btn_in_style ft_size_sm">訂單</div>
+              </div>
+            </div>
+          </button>
+          <button class="p-0 panel_btn_style ft_white">
+            <div class="row no-gutters align-items-center">
+              <div class="col mxw-75px">
+                <i class="fas fa-bell mt-3"></i>
+                <div class="panel_btn_in_style ft_size_sm">通知</div>
+              </div>
+            </div>
+          </button>
+          <button class="p-0 panel_btn_style ft_white">
+            <div class="row no-gutters align-items-center">
+              <div class="col mxw-75px">
+                <i class="fas fa-user-circle mt-3"></i>
+                <div class="panel_btn_in_style ft_size_sm">使用者</div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- /#add kart btn -->
+    <!-- change menu modal -->
+    <div
+      class="modal fade"
+      id="hintModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="saveModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body justify-content-center my-2 no_border">
+            <h6 class="modal-title">購物車有商品，切換時段菜單將會清空購物車</h6>
+          </div>
+          <div class="modal-footer no_border justify-content-center">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">確定切換</button>
+            <button type="button" class="btn btn-normal" data-dismiss="modal">取消</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /#change menu modal -->
+    <!-- notice modal -->
+    <div
+      class="modal fade"
+      id="noticeModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="saveModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">公告</h5>
+          </div>
+          <div class="modal-body justify-content-center my-2 no_border">
+            <h6 class="modal-title">公告內容12345</h6>
+          </div>
+          <div class="modal-footer no_border justify-content-center">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">確定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /#notice modal -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="components/jquery-3.3.1.min.js"></script>
+    <script src="components/popper.min.js"></script>
+    <script src="components/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <!--   -->
+    <script type="text/javascript">
+      var banner = document.getElementById('bannerPic'); //banner
+      var menuTabClass = document.getElementById('menuTab'); //menu分頁
+      var menuTabFixed = document.getElementById('menu_tab_empty_area'); //fixed效果需預留的空白高度
+      var pageOffSet = 0;
+
+      // 預先判斷有沒有banner，決定menuTab高度位置
+      $(document).ready(function () {
+        menuTabBegin();
+      });
+      function menuTabBegin() {
+        //依據有沒有banner，決定style高度條件
+        menuTabClass.style.marginTop = (document.getElementById('bannerPic') ? 230 : 50) + 'px';
+        menuTabFixed.style.height = (document.getElementById('bannerPic') ? 50 : 100) + 'px';
+        pageOffSet = window.pageYOffset;
+      }
+
+      // 判斷畫面移動高度，決定menuTab移動位置
+      function menuTabMoving() {
+        menuTabClass.style.marginTop =
+          (230 - window.pageYOffset > 50 ? 230 - window.pageYOffset : 50) + 'px';
+        pageOffSet = window.pageYOffset;
+      }
+
+      // 監看畫面移動位置
+      function marginMove() {
+        if (document.getElementById('bannerPic')) {
+          window.addEventListener('scroll', menuTabMoving, false);
+        } else {
+          menuTabClass.style.marginTop = 50 + 'px';
+        }
+      }
+
+      console.log(marginMove());
+    </script>
+
+    <!-- control button block show/hide Script -->
+    <script type="text/javascript">
+      var panelClass = document.getElementById('ControlBlock').classList;
+      var kartClass = document.getElementById('kartBlock').classList;
+
+      lastScrollY = 0;
+      //監看畫面移動位置，用以決定增減"控制按鈕"跟"結帳按鈕"的style class
+      window.addEventListener('scroll', function () {
+        var mouseScroll = this.scrollY;
+
+        if (mouseScroll < lastScrollY) {
+          panelClass.remove('hideUp', 'hideUpStyle_panel');
+          kartClass.remove('hideUpStyle_kart');
+        } else {
+          panelClass.add('hideUpStyle_panel');
+          kartClass.add('hideUpStyle_kart');
+          setTimeout(function () {
+            panelClass.add('hideUp');
+          }, 100);
+        }
+        lastScrollY = mouseScroll;
+      });
+    </script>
+  </body>
+</html>
