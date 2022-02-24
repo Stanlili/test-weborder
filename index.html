@@ -27,7 +27,10 @@
         <!-- <div class="store_close_style store_close_label">暫停接單</div> -->
         <div class="navbar-text mx-auto text-center ft_white ft_size_mid">店家名稱</div>
 
-        <button class="store_info_label btn_no_bg px-0" onclick="location.href='./store_info.html';">
+        <button
+          class="store_info_label btn_no_bg px-0"
+          onclick="location.href='./store_info.html';"
+        >
           <i class="fas fa-info-circle fa-lg fa-inverse"></i>
           資訊
         </button>
@@ -712,6 +715,7 @@
       function marginMove() {
         if (document.getElementById('bannerPic')) {
           window.addEventListener('scroll', menuTabMoving, false);
+          window.addEventListener('wheel', menuTabMoving, false);
         } else {
           menuTabClass.style.marginTop = 50 + 'px';
         }
@@ -727,7 +731,7 @@
 
       lastScrollY = 0;
       //監看畫面移動位置，用以決定增減"控制按鈕"跟"結帳按鈕"的style class
-      window.addEventListener('scroll', function () {
+      window.addEventListener('wheel', function () {
         var mouseScroll = this.scrollY;
 
         if (mouseScroll < lastScrollY) {
