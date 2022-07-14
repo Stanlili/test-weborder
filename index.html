@@ -731,7 +731,7 @@
       lastScrollY = 0;
       //監看畫面移動位置，用以決定增減"控制按鈕"跟"結帳按鈕"的style class
       window.addEventListener('wheel', function () {
-        var mouseScroll = this.scrollY;
+        var mouseScroll = window.pageYOffset;
 
         if (mouseScroll < lastScrollY) {
           panelClass.remove('hideUp', 'hideUpStyle_panel');
