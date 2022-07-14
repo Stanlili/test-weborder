@@ -726,29 +726,12 @@
 
     <!-- control button block show/hide Script -->
     <script type="text/javascript">
-      function debounce(func, delay = 250) {
-        let timer = null;
-
-        return () => {
-          let context = this;
-          let args = arguments;
-
-          clearTimeout(timer);
-          timer = setTimeout(() => {
-            func.apply(context, args);
-          }, delay);
-        };
-      }
-      function handleScroll() {
-        console.log(window.scrollY);
-      }
-
       var panelClass = document.getElementById('ControlBlock').classList;
       var kartClass = document.getElementById('kartBlock').classList;
 
       lastScrollY = 0;
       //監看畫面移動位置，用以決定增減"控制按鈕"跟"結帳按鈕"的style class
-      window.addEventListener('wheel', debounce(handleScroll), function () {
+      window.addEventListener('wheel', function () {
         var mouseScroll = this.scrollY;
 
         if (mouseScroll < lastScrollY) {
