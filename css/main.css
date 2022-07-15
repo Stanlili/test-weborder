@@ -1389,16 +1389,6 @@ overflow-y: hidden; */
   height:auto;
 }
 
-.tabbable {
-  overflow-x: auto;
-  overflow-y: hidden;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  height:auto;
-}
-
 /*swiper style*/
 .swiper-container {
   position: fixed;
