@@ -385,6 +385,7 @@ body {
 }
 
 /* tab style */
+.tab-pane,
 .tab-content{
    height: auto;
    overflow: auto;
