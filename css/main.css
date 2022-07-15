@@ -1379,6 +1379,7 @@ overflow-y: hidden; */
       flex-wrap: nowrap;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
+  height:auto;
 }
 
 /*swiper style*/
