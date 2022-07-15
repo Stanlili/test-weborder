@@ -32,6 +32,8 @@ body {
   font-weight: 500;
   height: 100%;
   overscroll-behavior-y: contain;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .btn_no_bg {
