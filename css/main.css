@@ -32,8 +32,6 @@ body {
   font-weight: 500;
   height: 100%;
   overscroll-behavior-y: contain;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .btn_no_bg {
@@ -387,6 +385,12 @@ body {
 }
 
 /* tab style */
+.tab-content{
+   height: auto;
+   overflow: auto;
+   -webkit-overflow-scrolling: touch;
+}
+
 .tabstyle,
 .nav-pills .nav-link.active,
 .nav-tabs .nav-link:hover {
