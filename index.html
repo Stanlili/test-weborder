@@ -728,8 +728,8 @@
     <script type="text/javascript">
       var panelClass = document.getElementById('ControlBlock').classList;
       var kartClass = document.getElementById('kartBlock').classList;
-      var lastExecution;
       lastScrollY = 0;
+      
       //監看畫面移動位置，用以決定增減"控制按鈕"跟"結帳按鈕"的style class
       window.addEventListener('scroll', function () {
         var mouseScroll = this.scrollY;
@@ -743,9 +743,7 @@
         } else {
           panelClass.add('hideUpStyle_panel');
           kartClass.add('hideUpStyle_kart');
-          setTimeout(function () {
-            panelClass.add('hideUp');
-          }, 500);
+          panelClass.add('hideUp');
         }
         lastScrollY = mouseScroll;
       });
