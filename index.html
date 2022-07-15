@@ -739,14 +739,14 @@
           timer = setTimeout(function () {
             panelClass.remove('hideUp', 'hideUpStyle_panel');
             kartClass.remove('hideUpStyle_kart');
-          }, 150);
+          }, 100);
         } else {
           clearTimeout(timer);
           timer = setTimeout(function () {
             panelClass.add('hideUpStyle_panel');
             kartClass.add('hideUpStyle_kart');
             panelClass.add('hideUp');
-          }, 150);
+          }, 100);
         }
         lastScrollY = mouseScroll;
       });
