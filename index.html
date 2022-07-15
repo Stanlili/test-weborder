@@ -733,9 +733,6 @@
       //監看畫面移動位置，用以決定增減"控制按鈕"跟"結帳按鈕"的style class
       window.addEventListener('scroll', function () {
         var mouseScroll = this.scrollY;
-        var now = Date.now();
-        if (now - lastExecution < 500) return; // ~60Hz
-        lastExecution = now;
         
         if (mouseScroll < lastScrollY) {
           panelClass.remove('hideUp', 'hideUpStyle_panel');
