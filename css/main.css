@@ -385,13 +385,6 @@ body {
 }
 
 /* tab style */
-.tab-pane,
-.tab-content{
-   height: auto;
-   overflow: auto;
-   -webkit-overflow-scrolling: touch;
-}
-
 .tabstyle,
 .nav-pills .nav-link.active,
 .nav-tabs .nav-link:hover {
