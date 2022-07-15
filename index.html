@@ -732,6 +732,8 @@
       
       //監看畫面移動位置，用以決定增減"控制按鈕"跟"結帳按鈕"的style class
       window.addEventListener('scroll', function () {
+        passive: true;
+        once: true;
         var mouseScroll = this.scrollY;
         
         if (mouseScroll < lastScrollY) {
