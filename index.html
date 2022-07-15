@@ -743,6 +743,7 @@
           panelClass.add('hideUp');
         }
         lastScrollY = mouseScroll;
+        event.stopPropagation();
       },
         {
           passive: true,
