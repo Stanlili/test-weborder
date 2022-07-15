@@ -726,29 +726,30 @@
 
     <!-- control button block show/hide Script -->
     <script type="text/javascript">
-      var panelClass = document.getElementById('ControlBlock').classList;
       var kartClass = document.getElementById('kartBlock').classList;
+      var panelClass = document.getElementById('ControlBlock').classList;
+      var timer = null;
       lastScrollY = 0;
-      
-      //監看畫面移動位置，用以決定增減"控制按鈕"跟"結帳按鈕"的style class
+
       window.addEventListener('scroll', function () {
         var mouseScroll = this.scrollY;
-        
-        if (mouseScroll < lastScrollY) {
-          panelClass.remove('hideUp', 'hideUpStyle_panel');
-          kartClass.remove('hideUpStyle_kart');
+
+        if (mouseScroll < lastScrollY && timer !== null) {
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            panelClass.remove('hideUp', 'hideUpStyle_panel');
+            kartClass.remove('hideUpStyle_kart');
+          }, 150);
         } else {
-          panelClass.add('hideUpStyle_panel');
-          kartClass.add('hideUpStyle_kart');
-          panelClass.add('hideUp');
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            panelClass.add('hideUpStyle_panel');
+            kartClass.add('hideUpStyle_kart');
+            panelClass.add('hideUp');
+          }, 150);
         }
         lastScrollY = mouseScroll;
-        event.stopPropagation();
-      },
-        {
-          passive: true,
-        }
-      );
+      });
     </script>
   </body>
 </html>
