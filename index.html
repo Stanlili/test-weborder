@@ -724,47 +724,53 @@
 
     <!-- control button block show/hide Script -->
     <script type="text/javascript">
+    <script type="text/javascript">
+      let clientX;
+      let clientY;
+      window.addEventListener(
+        'touchstart',
+        function (e) {
+          // Cache the client X/Y coordinates
+          clientX = e.touches[0].clientX;
+          clientY = e.touches[0].clientY;
+        },
+        false
+      );
+      window.addEventListener(
+        'touchend',
+        function (e) {
+          let deltaX;
+          let deltaY;
+          // Compute the change in X and Y coordinates.
+          // The first touch point in the changedTouches
+          // list is the touch point that was just removed from the surface.
+          deltaX = e.changedTouches[0].clientX - clientX;
+          deltaY = e.changedTouches[0].clientY - clientY;
+
+          if (deltaY < lastScrollY && timer !== null) {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+              panelClass.remove('hideUp', 'hideUpStyle_panel');
+              kartClass.remove('hideUpStyle_kart');
+            }, 50);
+          } else {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+              panelClass.add('hideUpStyle_panel');
+              kartClass.add('hideUpStyle_kart');
+              panelClass.add('hideUp');
+            }, 50);
+          }
+          lastScrollY = deltaY;
+        },
+        false
+      );
+
       var kartClass = document.getElementById('kartBlock').classList;
       var panelClass = document.getElementById('ControlBlock').classList;
       var timer = null;
       lastScrollY = 0;
 
-      window.addEventListener('scroll', function () {
-        var mouseScroll = this.scrollY;
-
-        if (mouseScroll < lastScrollY && timer !== null) {
-          clearTimeout(timer);
-          timer = setTimeout(function () {
-            panelClass.remove('hideUp', 'hideUpStyle_panel');
-            kartClass.remove('hideUpStyle_kart');
-          }, 50);
-        } else {
-          clearTimeout(timer);
-          timer = setTimeout(function () {
-            panelClass.add('hideUpStyle_panel');
-            kartClass.add('hideUpStyle_kart');
-            panelClass.add('hideUp');
-          }, 50);
-        }
-        lastScrollY = mouseScroll;
-      });
-
-      //監看畫面移動位置，用以決定增減"控制按鈕"跟"結帳按鈕"的style class
-      // window.addEventListener('wheel', function () {
-      //   var mouseScroll = this.scrollY;
-
-      //   if (mouseScroll < lastScrollY) {
-      //     panelClass.remove('hideUp', 'hideUpStyle_panel');
-      //     kartClass.remove('hideUpStyle_kart');
-      //   } else {
-      //     panelClass.add('hideUpStyle_panel');
-      //     kartClass.add('hideUpStyle_kart');
-      //     setTimeout(function () {
-      //       panelClass.add('hideUp');
-      //     }, 100);
-      //   }
-      //   lastScrollY = mouseScroll;
-      // });
     </script>
   </body>
 </html>
